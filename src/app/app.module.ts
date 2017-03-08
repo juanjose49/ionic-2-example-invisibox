@@ -2,11 +2,18 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
+import { AddFunFactsPage } from '../pages/add-fun-facts/add-fun-facts'
+import { GeneralInformationPage } from '../pages/general-information/general-information'
+import { TruncatePipe } from '../pipes/truncate'
+import {ManualBarcodeEntryPage} from '../pages/manual-barcode-entry/manual-barcode-entry'
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    AddFunFactsPage,
+    GeneralInformationPage,
+    TruncatePipe,
+    ManualBarcodeEntryPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -14,7 +21,10 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    AddFunFactsPage,
+    GeneralInformationPage,
+    ManualBarcodeEntryPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

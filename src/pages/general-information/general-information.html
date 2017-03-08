@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>General Information</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      General
+    </ion-list-header>
+    <ion-item>
+      <ion-input type="text" placeholder="Title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Wikipedia URL"></ion-input>
+    </ion-item>
+
+    <ion-list-header>
+      Fun Facts
+    </ion-list-header>
+    <ion-item *ngFor="let funFact of funFacts">{{funFact.fact | truncate: ['50']}}</ion-item>
+    <ion-item>
+        <button (click)="addFunFact()" ion-button item-right>Add Fun Fact</button>
+    </ion-item>
+  </ion-list>
+  <button (click)="submit()" ion-button color="secondary" full>Submit</button>
+</ion-content>

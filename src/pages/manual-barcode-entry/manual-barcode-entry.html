@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Manual Barcode Entry</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <ion-input [(ngModel)]="barcodeId" type="text" placeholder="Enter your Barcode..."></ion-input>
+      <button (click)="submit()" ion-button color="secondary" full>Submit</button>
+
+</ion-content>
