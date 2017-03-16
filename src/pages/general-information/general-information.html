@@ -11,16 +11,16 @@
       General
     </ion-list-header>
     <ion-item>
-      <ion-input type="text" placeholder="Title"></ion-input>
+      <ion-input [(ngModel)]="title"type="text" placeholder="Title"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="Wikipedia URL"></ion-input>
+      <ion-input [(ngModel)]="wikipediaUrl" type="text" placeholder="Wikipedia URL"></ion-input>
     </ion-item>
 
     <ion-list-header>
       Fun Facts
     </ion-list-header>
-    <ion-item *ngFor="let funFact of funFacts">{{funFact.fact | truncate: ['50']}}</ion-item>
+    <ion-item *ngFor="let funFact of funFacts">{{funFact | truncate: ['50']}}</ion-item>
     <ion-item>
         <button (click)="addFunFact()" ion-button item-right>Add Fun Fact</button>
     </ion-item>

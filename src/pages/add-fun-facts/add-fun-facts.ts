@@ -18,8 +18,7 @@ export class AddFunFactsPage {
     this.view.dismiss();
   }
   add(event){
-    let funFact = {fact:this.funFact}
-    this.view.dismiss(funFact);
+    this.view.dismiss(this.funFact);
   }
 
 }
