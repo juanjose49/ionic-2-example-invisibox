@@ -7,6 +7,7 @@ import { GeneralInformationPage } from '../pages/general-information/general-inf
 import { TruncatePipe } from '../pipes/truncate'
 import {ManualBarcodeEntryPage} from '../pages/manual-barcode-entry/manual-barcode-entry'
 import { InvisiboxService } from '../providers/invisibox-service'
+import { ImageService } from '../providers/image-service'
 
 @NgModule({
   declarations: [
@@ -28,6 +29,6 @@ import { InvisiboxService } from '../providers/invisibox-service'
     GeneralInformationPage,
     ManualBarcodeEntryPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, InvisiboxService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, InvisiboxService, ImageService]
 })
 export class AppModule {}
