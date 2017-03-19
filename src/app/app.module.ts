@@ -9,6 +9,7 @@ import {ManualBarcodeEntryPage} from '../pages/manual-barcode-entry/manual-barco
 import { InvisiboxService } from '../providers/invisibox-service'
 import { ImageService } from '../providers/image-service'
 import { ConfigService } from '../providers/config-service'
+import { StatusService } from '../providers/status-service'
 import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
 
 @NgModule({
@@ -34,6 +35,6 @@ import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
     InvisiboxViewerPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
-  InvisiboxService, ImageService, ConfigService]
+  InvisiboxService, ImageService, ConfigService, StatusService]
 })
 export class AppModule {}

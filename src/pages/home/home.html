@@ -7,5 +7,8 @@
 </ion-header>
 
 <ion-content padding>
-  <button (click)="scan()" style="height:20%;"ion-button color="secondary" full>Scan</button>
+  <ng-container *ngIf="!isServiceUp">
+    <h2> The Invisibox Service is currently unavailable. Please try again later.</h2>
+  </ng-container>
+  <button [disabled]="!isServiceUp" (click)="scan()" style="height:20%;"ion-button color="secondary" full>Scan</button>
 </ion-content>

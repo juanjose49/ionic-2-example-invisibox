@@ -5,14 +5,19 @@ import { GeneralInformationPage } from '../general-information/general-informati
 import { ManualBarcodeEntryPage } from '../manual-barcode-entry/manual-barcode-entry'
 import { InvisiboxViewerPage } from '../invisibox-viewer/invisibox-viewer'
 import { InvisiboxService } from '../../providers/invisibox-service'
+import { StatusService } from '../../providers/status-service'
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  constructor(public navCtrl: NavController, public invisiboxService: InvisiboxService) {
-    
+  public isServiceUp;
+  constructor(public navCtrl: NavController, public invisiboxService: InvisiboxService,
+  public statusService: StatusService) {
+    this.statusService.getStatus()
+      .then(response => this.isServiceUp = true)
+      .catch(response => this.isServiceUp = false)
   }
 
   scan(event){
