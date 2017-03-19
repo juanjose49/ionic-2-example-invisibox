@@ -9,6 +9,7 @@
 <ion-content padding>
   <ng-container *ngIf="!isServiceUp">
     <h2> The Invisibox Service is currently unavailable. Please try again later.</h2>
+    <button (click)="refreshStatus()" style="height:20%;" ion-button color="primary" full>Refresh Status</button>
   </ng-container>
-  <button [disabled]="!isServiceUp" (click)="scan()" style="height:20%;"ion-button color="secondary" full>Scan</button>
+  <button [disabled]="!isServiceUp" (click)="scan()" style="height:20%;" ion-button color="secondary" full>Scan</button>
 </ion-content>

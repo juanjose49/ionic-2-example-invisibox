@@ -15,9 +15,7 @@ export class HomePage {
   public isServiceUp;
   constructor(public navCtrl: NavController, public invisiboxService: InvisiboxService,
   public statusService: StatusService) {
-    this.statusService.getStatus()
-      .then(response => this.isServiceUp = true)
-      .catch(response => this.isServiceUp = false)
+    this.refreshStatus()
   }
 
   scan(event){
@@ -43,6 +41,12 @@ export class HomePage {
         this.navCtrl.push(ManualBarcodeEntryPage);
 
     });
+  }
+
+  refreshStatus(){
+    this.statusService.getStatus()
+      .then(response => this.isServiceUp = true)
+      .catch(response => this.isServiceUp = false)
   }
 
 
