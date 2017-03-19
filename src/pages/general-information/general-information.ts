@@ -61,7 +61,9 @@ export class GeneralInformationPage {
                     }
     this.invisiboxService.saveInvisibox(invisibox)
         .then(response => alert("Your Invisibox was successfully saved."))
-        .catch(response => alert("The barcode entered has already been used."));
+        .catch(response => {
+          alert("An error occurred saving your Invisibox.")
+        });
     
     this.navCtrl.popToRoot();
   }

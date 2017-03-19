@@ -4,13 +4,18 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ImageService {
-
+  public host = "myinvisibox.com"
   constructor(public http: Http) {  }
 
-    saveImage(image){
+  saveImage(image){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post("http://myinvisibox.com:7000/image/", image, options).toPromise()
+    return this.http.post("http://"+this.host+":7000/image/", image, options).toPromise()
   }
 
+  getImage(imageUuid){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get("http://"+this.host+":7000/image/"+imageUuid, options).toPromise()
+  }
 }
