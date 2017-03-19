@@ -19,7 +19,7 @@ export class HomePage {
     BarcodeScanner.scan().then((barcodeData) => {
       var barcodeId = barcodeData.text;
       if(barcodeData.text != ""){
-        var invisibox = this.invisiboxService.getInvisibox(barcodeId)
+        this.invisiboxService.getInvisibox(barcodeId)
             .then(response => {
               this.navCtrl.push(InvisiboxViewerPage,{invisibox:response.json()});
             })
@@ -28,6 +28,8 @@ export class HomePage {
 
               if(response.status == 404){
                 this.navCtrl.push(GeneralInformationPage,{barcodeId:barcodeId});
+              }else{
+                alert("The backend service may be down.")
               }
               
             });

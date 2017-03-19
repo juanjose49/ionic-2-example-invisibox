@@ -25,7 +25,9 @@ export class ManualBarcodeEntryPage {
           .catch(response =>{
             if(response.status == 404){
               this.navCtrl.push(GeneralInformationPage,{barcodeId:this.barcodeId});
-            }
+            }else{
+                alert("The backend service may be down.")
+              }
             
           });
       
