@@ -7,11 +7,10 @@
 
 <ion-content padding>
   <ion-slides pager>
-
     <ion-slide *ngFor="let image of images">
       <img style="width:100%;" src="{{image.base64Img}}"/>
     </ion-slide>
-
+    
     <ion-slide *ngIf="invisibox.title">
       <h2>{{invisibox.title}}</h2>
     </ion-slide>

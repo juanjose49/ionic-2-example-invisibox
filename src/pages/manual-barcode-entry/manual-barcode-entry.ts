@@ -18,13 +18,11 @@ export class ManualBarcodeEntryPage {
 
   submit(event){
     if(this.barcodeId != ""){
-      var invisibox = this.invisiboxService.getInvisibox(this.barcodeId)
+      this.invisiboxService.getInvisibox(this.barcodeId)
           .then(response => {
             this.navCtrl.push(InvisiboxViewerPage,{invisibox:response.json()});
           })
           .catch(response =>{
-            console.log("called catch")
-
             if(response.status == 404){
               this.navCtrl.push(GeneralInformationPage,{barcodeId:this.barcodeId});
             }

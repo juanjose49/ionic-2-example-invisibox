@@ -28,17 +28,19 @@ export class InvisiboxViewerPage {
   loadImages(){
     var imageService = this.imageService;
     var images = this.images;
-    this.invisibox.imageUuids.forEach(function(imageUuid){
-      imageService.getImage(imageUuid).then(response =>{
-        // console.log(response.json())
-        images.push(response.json());
+    if(this.invisibox.imageUuids != null){
+      this.invisibox.imageUuids.forEach(function(imageUuid){
+        imageService.getImage(imageUuid).then(response =>{
+          // console.log(response.json())
+          images.push(response.json());
 
+        })
+        .catch(response => {
+          console.log("image load failed");
+          console.log(response);
+        });
       })
-      .catch(response => {
-        console.log("image load failed");
-        console.log(response);
-      });
-    })
+    }
   }
 
   finish(){

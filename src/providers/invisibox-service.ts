@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { ConfigService } from './config-service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class InvisiboxService {
-  public host = "myinvisibox.com"
-  constructor(public http: Http) {
+  public host;
+  constructor(public http: Http, public configService: ConfigService) {
+    this.host = configService.getHost();
   }
 
   saveInvisibox(invisibox){

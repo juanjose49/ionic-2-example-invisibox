@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { ConfigService } from './config-service';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ImageService {
-  public host = "myinvisibox.com"
-  constructor(public http: Http) {  }
+  public host;
+
+  constructor(public http: Http, public configService: ConfigService) { 
+    this.host = configService.getHost();
+   }
 
   saveImage(image){
     let headers = new Headers({ 'Content-Type': 'application/json' });
