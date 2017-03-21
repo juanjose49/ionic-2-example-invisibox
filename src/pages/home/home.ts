@@ -12,9 +12,11 @@ import { StatusService } from '../../providers/status-service'
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public isServiceUp;
+  public isServiceUp = true;
   constructor(public navCtrl: NavController, public invisiboxService: InvisiboxService,
   public statusService: StatusService) {
+  }
+  ionViewDidLoad() {
     this.refreshStatus()
   }
 

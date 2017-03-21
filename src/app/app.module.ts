@@ -11,6 +11,7 @@ import { ImageService } from '../providers/image-service'
 import { ConfigService } from '../providers/config-service'
 import { StatusService } from '../providers/status-service'
 import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
+import { QrViewerPage } from '../pages/qr-viewer/qr-viewer'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
     GeneralInformationPage,
     TruncatePipe,
     ManualBarcodeEntryPage,
-    InvisiboxViewerPage
+    InvisiboxViewerPage,
+    QrViewerPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -32,7 +34,8 @@ import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
     AddFunFactsPage,
     GeneralInformationPage,
     ManualBarcodeEntryPage,
-    InvisiboxViewerPage
+    InvisiboxViewerPage,
+    QrViewerPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
   InvisiboxService, ImageService, ConfigService, StatusService]

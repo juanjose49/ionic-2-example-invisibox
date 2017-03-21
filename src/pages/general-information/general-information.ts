@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 import { AddFunFactsPage } from '../add-fun-facts/add-fun-facts'
+import { QrViewerPage } from '../qr-viewer/qr-viewer'
 import { InvisiboxService } from '../../providers/invisibox-service'
 import { ImageService } from '../../providers/image-service'
 import { Camera } from 'ionic-native';
@@ -60,13 +61,14 @@ export class GeneralInformationPage {
                       "imageUuids": imageUuids
                     }
     this.invisiboxService.saveInvisibox(invisibox)
-        .then(response => alert("Your Invisibox was successfully saved."))
-        .catch(response => {
+        .then(response => {
+          this.navCtrl.push(QrViewerPage,{qrCode:response.json().qrCode});
+        }).catch(response => {
+          console.log(response);
           alert("An error occurred saving your Invisibox.")
         });
-    
-    this.navCtrl.popToRoot();
   }
+    
 
   setBarcodeId(barcodeId){
     this.barcodeId = barcodeId;
