@@ -38,9 +38,7 @@ export class InvisiboxViewerPage {
   }
 
   finish(){
-    // this.navCtrl.setRoot(InvisiboxManagerPage);
-    this.navCtrl.parent.select(1);
-    // this.navCtrl.push(InvisiboxManagerPage);
+    this.navCtrl.parent.select(0);
   }
 
 }

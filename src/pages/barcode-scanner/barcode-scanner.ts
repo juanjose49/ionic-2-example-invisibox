@@ -18,7 +18,7 @@ export class BarcodeScannerPage {
   public isServiceUp = true;
   constructor(public navCtrl: NavController, public invisiboxService: InvisiboxService,
   public statusService: StatusService) {}  
-  
+
   ionViewDidLoad() {
     this.refreshStatus()
     BarcodeScanner.scan().then((barcodeData) => {
@@ -38,6 +38,8 @@ export class BarcodeScannerPage {
               }
               
             });
+      }else{
+        this.navCtrl.parent.select(0);
       }
     }, (err) => {
         this.navCtrl.push(ManualBarcodeEntryPage);

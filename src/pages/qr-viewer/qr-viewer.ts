@@ -25,7 +25,7 @@ export class QrViewerPage {
   }
 
   finish(){
-    this.navCtrl.popToRoot();
+    this.navCtrl.parent.select(0);
   }
 
 }
