@@ -6,12 +6,13 @@ import { BarcodeScannerPage } from '../pages/barcode-scanner/barcode-scanner';
 import { InvisiboxManagerPage } from '../pages/invisibox-manager/invisibox-manager';
 import { SettingsPage } from '../pages/settings/settings';
 
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { BarcodeScanner } from 'ionic-native';
 import { GeneralInformationPage } from '../pages/general-information/general-information'
 import { ManualBarcodeEntryPage } from '../pages/manual-barcode-entry/manual-barcode-entry'
 import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
 import { InvisiboxService } from '../providers/invisibox-service'
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -22,7 +23,7 @@ export class MyApp {
   invisiboxManager = InvisiboxManagerPage;
   settings = SettingsPage;
 
-  constructor(platform: Platform, public invisiboxService: InvisiboxService) {
+  constructor(platform: Platform, public invisiboxService: InvisiboxService, public loadingCtrl: LoadingController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -31,6 +32,11 @@ export class MyApp {
     });
   }
   scan(){
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 1000
+    });
+    loader.present();
         BarcodeScanner.scan().then((barcodeData) => {
       var barcodeId = barcodeData.text;
       if(barcodeData.text != ""){

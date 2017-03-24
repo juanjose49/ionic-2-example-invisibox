@@ -14,11 +14,10 @@
 
 
 <ion-content class="outer-content">
-  <ion-list>
-    <ion-list-header>
-      Busters
-    </ion-list-header>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
+
+  <ion-list>
     <ion-item-sliding>
       <ion-item>
         <ion-thumbnail  item-left>
@@ -123,109 +122,6 @@
         </ion-thumbnail>
         <h2>Tully</h2>
         <p>Okay, who brought the dog?</p>
-      </ion-item>
-      <ion-item-options>
-        <button ion-button color="light" icon-left>
-          <ion-icon name="ios-more"></ion-icon>
-          More
-        </button>
-        <button ion-button color="primary" icon-left>
-          <ion-icon name="text"></ion-icon>
-          Text
-        </button>
-        <button ion-button color="secondary" icon-left>
-          <ion-icon name="call"></ion-icon>
-          Call
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-
-    <ion-item-sliding>
-      <ion-item>
-        <ion-thumbnail item-left>
-          <img src="assets/img/barrett.jpg">
-        </ion-thumbnail>
-        <h2>Dana</h2>
-        <p>I am The Gatekeeper!</p>
-      </ion-item>
-      <ion-item-options>
-        <button ion-button color="light" icon-left>
-          <ion-icon name="ios-more"></ion-icon>
-          More
-        </button>
-        <button ion-button color="primary" icon-left>
-          <ion-icon name="text"></ion-icon>
-          Text
-        </button>
-        <button ion-button color="secondary"icon-left >
-          <ion-icon name="call"></ion-icon>
-          Call
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-
-  </ion-list>
-
-  <ion-list>
-    <ion-list-header>
-      Ghosts
-    </ion-list-header>
-
-    <ion-item-sliding>
-      <ion-item>
-        <ion-thumbnail item-left>
-          <img src="assets/img/slimer.jpg">
-        </ion-thumbnail>
-        <h2>Slimer</h2>
-        <p>Boo!</p>
-      </ion-item>
-      <ion-item-options>
-        <button ion-button color="light" icon-left>
-          <ion-icon name="ios-more"></ion-icon>
-          More
-        </button>
-        <button ion-button color="primary" icon-left>
-          <ion-icon name="text"></ion-icon>
-          Text
-        </button>
-        <button ion-button color="secondary" icon-left>
-          <ion-icon name="call"></ion-icon>
-          Call
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-
-    <ion-item-sliding>
-      <ion-item>
-        <ion-thumbnail item-left>
-          <img src="assets/img/marshmallow-man.png">
-        </ion-thumbnail>
-        <h2>Stay Puft Marshmallow Man</h2>
-        <p>Never cross the streams!</p>
-      </ion-item>
-      <ion-item-options>
-        <button ion-button color="light" icon-left>
-          <ion-icon name="ios-more"></ion-icon>
-          More
-        </button>
-        <button ion-button color="primary" icon-left>
-          <ion-icon name="text"></ion-icon>
-          Text
-        </button>
-        <button ion-button color="secondary" icon-left>
-          <ion-icon name="call"></ion-icon>
-          Call
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-
-    <ion-item-sliding>
-      <ion-item>
-        <ion-thumbnail item-left>
-          <img src="assets/img/gozer.png">
-        </ion-thumbnail>
-        <h2>Gozer</h2>
-        <p>Are you a God?</p>
       </ion-item>
       <ion-item-options>
         <button ion-button color="light" icon-left>
