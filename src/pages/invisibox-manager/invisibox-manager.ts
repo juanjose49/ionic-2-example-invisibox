@@ -19,4 +19,8 @@ export class InvisiboxManagerPage {
     console.log('ionViewDidLoad InvisiboxManagerPage');
   }
 
+  getNav(){
+    return this.navCtrl;
+  }
+
 }
