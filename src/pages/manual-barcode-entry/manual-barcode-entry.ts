@@ -34,4 +34,9 @@ export class ManualBarcodeEntryPage {
     }
   }
 
+  cancel(){
+    this.navCtrl.popToRoot();
+    this.navCtrl.parent.parent.getTabs().select(1);
+  }
+
 }

@@ -2,12 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ImageService } from '../../providers/image-service'
 
-/*
-  Generated class for the InvisiboxViewer page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-invisibox-viewer',
   templateUrl: 'invisibox-viewer.html'
@@ -44,7 +38,9 @@ export class InvisiboxViewerPage {
   }
 
   finish(){
-    this.navCtrl.popToRoot();
+    // this.navCtrl.setRoot(InvisiboxManagerPage);
+    this.navCtrl.parent.select(1);
+    // this.navCtrl.push(InvisiboxManagerPage);
   }
 
 }

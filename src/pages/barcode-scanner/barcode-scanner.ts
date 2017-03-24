@@ -6,21 +6,21 @@ import { ManualBarcodeEntryPage } from '../manual-barcode-entry/manual-barcode-e
 import { InvisiboxViewerPage } from '../invisibox-viewer/invisibox-viewer'
 import { InvisiboxService } from '../../providers/invisibox-service'
 import { StatusService } from '../../providers/status-service'
+import { InvisiboxManagerPage } from '../invisibox-manager/invisibox-manager'
 
+
+  
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-barcode-scanner',
+  templateUrl: 'barcode-scanner.html'
 })
-export class HomePage {
+export class BarcodeScannerPage {
   public isServiceUp = true;
   constructor(public navCtrl: NavController, public invisiboxService: InvisiboxService,
-  public statusService: StatusService) {
-  }
+  public statusService: StatusService) {}  
+  
   ionViewDidLoad() {
     this.refreshStatus()
-  }
-
-  scan(event){
     BarcodeScanner.scan().then((barcodeData) => {
       var barcodeId = barcodeData.text;
       if(barcodeData.text != ""){
@@ -45,6 +45,8 @@ export class HomePage {
     });
   }
 
+
+
   refreshStatus(){
     this.statusService.getStatus()
       .then(response => this.isServiceUp = true)
@@ -53,3 +55,4 @@ export class HomePage {
 
 
 }
+

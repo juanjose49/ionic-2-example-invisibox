@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, Tabs } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { HomePage } from '../pages/home/home';
+import { BarcodeScannerPage } from '../pages/barcode-scanner/barcode-scanner';
+import { InvisiboxManagerPage } from '../pages/invisibox-manager/invisibox-manager';
+import { SettingsPage } from '../pages/settings/settings';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = HomePage;
+  @ViewChild('myTabs') tabs: Tabs;
+  barcodeScanner = BarcodeScannerPage;
+  invisiboxManager = InvisiboxManagerPage;
+  settings = SettingsPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
@@ -17,6 +22,11 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+      this.tabs.select(2);
     });
+  }
+
+  getTabs(){
+    return this.tabs;
   }
 }
