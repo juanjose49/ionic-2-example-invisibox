@@ -6,7 +6,6 @@ import { ManualBarcodeEntryPage } from '../manual-barcode-entry/manual-barcode-e
 import { InvisiboxViewerPage } from '../invisibox-viewer/invisibox-viewer'
 import { InvisiboxService } from '../../providers/invisibox-service'
 import { StatusService } from '../../providers/status-service'
-import { InvisiboxManagerPage } from '../invisibox-manager/invisibox-manager'
 
 
   
