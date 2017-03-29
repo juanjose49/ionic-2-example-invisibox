@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { PhotoViewer } from 'ionic-native';
 
 /*
   Generated class for the QrViewer page.
@@ -26,6 +27,10 @@ export class QrViewerPage {
 
   finish(){
     this.navCtrl.parent.select(0);
+  }
+
+  openViewer(base64Img){
+    PhotoViewer.show(base64Img);
   }
 
 }

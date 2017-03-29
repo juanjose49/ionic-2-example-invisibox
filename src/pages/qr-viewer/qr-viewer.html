@@ -1,6 +1,6 @@
 <ion-content padding>
   <div style="text-align: center">
-    <img [src]="qrCode"/>
+    <img (click)="openViewer(qrCode)" [src]="qrCode"/>
   </div>
   
   <button (click)="finish()" ion-button color="secondary" full>Finish</button>
