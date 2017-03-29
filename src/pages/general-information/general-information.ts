@@ -76,7 +76,7 @@ export class GeneralInformationPage {
 
   captureImage(){
     let options = {
-                    "quality": 100,
+                    "quality": 50,
                     "destinationType": Camera.DestinationType.DATA_URL,
                     "encodingType": Camera.EncodingType.JPEG
                   }
