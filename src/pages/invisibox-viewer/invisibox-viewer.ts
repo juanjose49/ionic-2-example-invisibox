@@ -14,28 +14,26 @@ export class InvisiboxViewerPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public imageService: ImageService) {
     this.setInvisibox(this.navParams.data.invisibox)
-    this.loadImages()}
+    this.loadNextImage()}
 
   setInvisibox(invisibox){
     this.invisibox = invisibox;
   }
 
-  loadImages(){
+  loadNextImage(){
     var imageService = this.imageService;
     var images = this.images;
-    if(this.invisibox.imageUuids != null){
-      this.invisibox.imageUuids.forEach(function(imageUuid){
+    if(this.invisibox.imageUuids){
+      var imageUuid = this.invisibox.imageUuids[0];
+      this.invisibox.imageUuids.splice(0,1);
         imageService.getImage(imageUuid).then(response =>{
           // console.log(response.json())
           images.push(response.json());
 
         })
-        .catch(response => {
-          console.log("image load failed");
-          console.log(response);
-        });
-      })
-    }
+
+      }
+    
   }
 
   finish(){

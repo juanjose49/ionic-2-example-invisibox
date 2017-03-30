@@ -13,7 +13,7 @@
 <ion-content>
   <ion-slides pager>
     <ion-slide *ngFor="let image of images">
-      <img (click)="openViewer(image.base64Img)" src="{{image.base64Img}}"/>
+      <img (click)="openViewer(image.base64Img)" src="{{image.base64Img}}" (load)="loadNextImage()"/>
     </ion-slide>
 
     <ion-slide *ngFor="let funFact of invisibox.funFacts">
