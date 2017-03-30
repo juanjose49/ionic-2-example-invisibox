@@ -1,3 +1,9 @@
+<ion-header>
+  <ion-navbar hideBackButton color="primary" style="text-align: center">
+    <ion-title>Manual Barcode Entry</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content padding>
       <ion-input [(ngModel)]="barcodeId" type="text" placeholder="Enter your Barcode..."></ion-input>
       <button (click)="submit()" ion-button color="secondary" full>Submit</button>
