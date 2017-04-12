@@ -4,7 +4,7 @@ import { AddFunFactsPage } from '../add-fun-facts/add-fun-facts'
 import { QrViewerPage } from '../qr-viewer/qr-viewer'
 import { InvisiboxService } from '../../providers/invisibox-service'
 import { ImageService } from '../../providers/image-service'
-import { Camera } from 'ionic-native';
+import { Camera } from '@ionic-native/camera';
 import $ from 'jquery';
 
 @Component({
@@ -21,7 +21,8 @@ export class GeneralInformationPage {
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public view: ViewController, public modalCtrl: ModalController,
-    public invisiboxService: InvisiboxService, public imageService: ImageService) {}
+    public invisiboxService: InvisiboxService, public imageService: ImageService,
+    public camera: Camera) {}
 
   ionViewDidLoad() {
     this.setBarcodeId(this.navParams.data.barcodeId)
@@ -77,10 +78,10 @@ export class GeneralInformationPage {
   captureImage(){
     let options = {
                     "quality": 25,
-                    "destinationType": Camera.DestinationType.DATA_URL,
-                    "encodingType": Camera.EncodingType.JPEG
+                    "destinationType": this.camera.DestinationType.DATA_URL,
+                    "encodingType": this.camera.EncodingType.JPEG
                   }
-    Camera.getPicture(options).then((imageData) => {
+    this.camera.getPicture(options).then((imageData) => {
       let base64Image = 'data:image/jpeg;base64,' + imageData;
       this.images.push(base64Image);
     }, (err) => {

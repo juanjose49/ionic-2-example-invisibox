@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ImageService } from '../../providers/image-service';
-import { PhotoViewer } from 'ionic-native';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 @Component({
   selector: 'page-invisibox-viewer',
@@ -12,7 +12,7 @@ export class InvisiboxViewerPage {
   public images = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public imageService: ImageService) {
+  public imageService: ImageService, public photoViewer: PhotoViewer) {
     this.setInvisibox(this.navParams.data.invisibox)
     this.loadNextImage()}
 
@@ -41,7 +41,7 @@ export class InvisiboxViewerPage {
   }
 
   openViewer(base64Img){
-    PhotoViewer.show(base64Img);
+    this.photoViewer.show(base64Img);
   }
 
 }

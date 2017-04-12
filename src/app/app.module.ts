@@ -14,6 +14,13 @@ import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
 import { QrViewerPage } from '../pages/qr-viewer/qr-viewer'
 import { InvisiboxManagerPage } from '../pages/invisibox-manager/invisibox-manager';
 import { SettingsPage } from '../pages/settings/settings';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar'
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { Camera } from '@ionic-native/camera';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { BrowserModule } from '@angular/platform-browser'
+import { HttpModule } from '@angular/http'
 
 @NgModule({
   declarations: [
@@ -29,7 +36,9 @@ import { SettingsPage } from '../pages/settings/settings';
     SettingsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    BrowserModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +53,7 @@ import { SettingsPage } from '../pages/settings/settings';
     SettingsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
-  InvisiboxService, ImageService, ConfigService, StatusService]
+  InvisiboxService, ImageService, ConfigService, StatusService, SplashScreen,
+  StatusBar, BarcodeScanner, Camera, PhotoViewer]
 })
 export class AppModule {}

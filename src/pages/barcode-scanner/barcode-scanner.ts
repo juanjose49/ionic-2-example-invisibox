@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { BarcodeScanner } from 'ionic-native';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { GeneralInformationPage } from '../general-information/general-information'
 import { ManualBarcodeEntryPage } from '../manual-barcode-entry/manual-barcode-entry'
 import { InvisiboxViewerPage } from '../invisibox-viewer/invisibox-viewer'
@@ -16,11 +16,11 @@ import { StatusService } from '../../providers/status-service'
 export class BarcodeScannerPage {
   public isServiceUp = true;
   constructor(public navCtrl: NavController, public invisiboxService: InvisiboxService,
-  public statusService: StatusService) {}  
+  public statusService: StatusService, public barcodeScanner: BarcodeScanner) {}  
 
   ionViewDidLoad() {
     this.refreshStatus()
-    BarcodeScanner.scan().then((barcodeData) => {
+    this.barcodeScanner.scan().then((barcodeData) => {
       var barcodeId = barcodeData.text;
       if(barcodeData.text != ""){
         this.invisiboxService.getInvisibox(barcodeId)
