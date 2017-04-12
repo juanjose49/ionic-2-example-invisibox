@@ -20,6 +20,7 @@ import { Camera } from '@ionic-native/camera';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpModule } from '@angular/http'
+import { GooglePlus } from '@ionic-native/google-plus';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,6 @@ import { HttpModule } from '@angular/http'
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
   InvisiboxService, ImageService, ConfigService, StatusService, SplashScreen,
-  StatusBar, BarcodeScanner, Camera, PhotoViewer]
+  StatusBar, BarcodeScanner, Camera, PhotoViewer, GooglePlus]
 })
 export class AppModule {}

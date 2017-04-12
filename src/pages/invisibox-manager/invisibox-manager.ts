@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { GooglePlus } from '@ionic-native/google-plus';
 
-/*
-  Generated class for the InvisiboxManager page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-invisibox-manager',
   templateUrl: 'invisibox-manager.html'
 })
 export class InvisiboxManagerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public googlePlus: GooglePlus) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InvisiboxManagerPage');
@@ -21,6 +18,12 @@ export class InvisiboxManagerPage {
 
   getNav(){
     return this.navCtrl;
+  }
+
+  login(){
+    this.googlePlus.login({})
+      .then(res => console.log(res))
+      .catch(err => console.error(err));;
   }
 
 }
