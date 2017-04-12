@@ -2,10 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Tabs } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar'
-import { BarcodeScannerPage } from '../pages/barcode-scanner/barcode-scanner';
 import { InvisiboxManagerPage } from '../pages/invisibox-manager/invisibox-manager';
 import { SettingsPage } from '../pages/settings/settings';
-
 import { NavController, LoadingController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { GeneralInformationPage } from '../pages/general-information/general-information'
@@ -19,7 +17,6 @@ import { InvisiboxService } from '../providers/invisibox-service'
 export class MyApp {
   @ViewChild('myTabs') tabs: Tabs;
   @ViewChild('manager') manager: NavController;
-  // barcodeScannerPage = BarcodeScannerPage;
   invisiboxManager = InvisiboxManagerPage;
   settings = SettingsPage;
 

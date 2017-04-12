@@ -25,7 +25,6 @@ import { HttpModule } from '@angular/http'
 @NgModule({
   declarations: [
     MyApp,
-    BarcodeScannerPage,
     AddFunFactsPage,
     GeneralInformationPage,
     TruncatePipe,
@@ -43,7 +42,6 @@ import { HttpModule } from '@angular/http'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    BarcodeScannerPage,
     AddFunFactsPage,
     GeneralInformationPage,
     ManualBarcodeEntryPage,
