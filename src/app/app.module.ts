@@ -1,7 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { BarcodeScannerPage } from '../pages/barcode-scanner/barcode-scanner';
 import { AddFunFactsPage } from '../pages/add-fun-facts/add-fun-facts'
 import { GeneralInformationPage } from '../pages/general-information/general-information'
 import { TruncatePipe } from '../pipes/truncate'
