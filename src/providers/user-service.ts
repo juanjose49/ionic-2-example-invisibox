@@ -54,7 +54,7 @@ export class UserService {
   }
 
   isLoggedIn(){
-    return this.user == null;
+    return this.user != null;
   }
 
   getUser(){

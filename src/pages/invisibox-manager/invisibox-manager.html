@@ -12,8 +12,8 @@
         background-size: cover; 
         background-position: center;" >
   </ion-content>
-  <div id="outPopUp" *ngIf="isLoggedIn()">
-      <h4 id="transparent" >Please login to manage your Invisiboxes</h4>
+  <div id="login-prompt" *ngIf="!isLoggedIn()">
+      <h4>Please login to manage your Invisiboxes</h4>
       <button (click)="login()" ion-button full color="secondary">Login with Google+</button>
   </div>
 </ion-content>

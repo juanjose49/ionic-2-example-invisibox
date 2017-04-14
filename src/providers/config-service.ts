@@ -19,12 +19,4 @@ export class ConfigService {
       return "myinvisibox.com";
     }
   }
-  isInitialLoad(){
-    if(this.isInit){
-      this.isInit = false;
-      return true;
-    }else{
-      return false;
-    }
-  }
 }

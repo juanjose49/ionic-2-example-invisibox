@@ -11,10 +11,10 @@ import $ from 'jquery';
 export class InvisiboxManagerPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-  public userService: UserService, public configService: ConfigService) {}
+  public userService: UserService) {}
 
   ionViewDidLoad() {
-      $("#invisibox-bg").fadeOut(1000);
+      $("#invisibox-bg").fadeOut(2000);
   }
 
   getNav(){
@@ -29,8 +29,5 @@ export class InvisiboxManagerPage {
     return this.userService.isLoggedIn()
   }
 
-  isInitialLoad(){
-    this.configService.isInitialLoad();
-  }
 
 }
