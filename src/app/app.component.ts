@@ -6,7 +6,7 @@ import { InvisiboxManagerPage } from '../pages/invisibox-manager/invisibox-manag
 import { SettingsPage } from '../pages/settings/settings';
 import { NavController, LoadingController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { GeneralInformationPage } from '../pages/general-information/general-information'
+import { InvisiboxCreatorPage } from '../pages/invisibox-creator/invisibox-creator'
 import { ManualBarcodeEntryPage } from '../pages/manual-barcode-entry/manual-barcode-entry'
 import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
 import { InvisiboxService } from '../providers/invisibox-service'
@@ -47,7 +47,7 @@ export class MyApp {
               console.log("called catch")
 
               if(response.status == 404){
-                this.manager.push(GeneralInformationPage,{barcodeId:barcodeId});
+                this.manager.push(InvisiboxCreatorPage,{barcodeId:barcodeId});
               }else{
                 alert("The backend service may be down.")
               }

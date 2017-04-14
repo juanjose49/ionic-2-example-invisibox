@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AddFunFactsPage } from '../pages/add-fun-facts/add-fun-facts'
-import { GeneralInformationPage } from '../pages/general-information/general-information'
+import { InvisiboxCreatorPage } from '../pages/invisibox-creator/invisibox-creator'
 import { TruncatePipe } from '../pipes/truncate'
 import { ManualBarcodeEntryPage } from '../pages/manual-barcode-entry/manual-barcode-entry'
 import { InvisiboxService } from '../providers/invisibox-service'
@@ -27,7 +27,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
   declarations: [
     MyApp,
     AddFunFactsPage,
-    GeneralInformationPage,
+    InvisiboxCreatorPage,
     TruncatePipe,
     ManualBarcodeEntryPage,
     InvisiboxViewerPage,
@@ -44,7 +44,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
   entryComponents: [
     MyApp,
     AddFunFactsPage,
-    GeneralInformationPage,
+    InvisiboxCreatorPage,
     ManualBarcodeEntryPage,
     InvisiboxViewerPage,
     QrViewerPage,

@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../providers/user-service';
 import { ConfigService } from '../../providers/config-service';
 import $ from 'jquery';
+import { InvisiboxCreatorPage } from '../invisibox-creator/invisibox-creator'
 
 @Component({
   selector: 'page-invisibox-manager',
@@ -26,6 +27,10 @@ export class InvisiboxManagerPage {
 
   isLoggedIn(){
     return this.userService.isLoggedIn()
+  }
+
+  addInvisibox(){
+    this.navCtrl.push(InvisiboxCreatorPage)
   }
 
 

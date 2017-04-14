@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { GeneralInformationPage } from '../general-information/general-information'
+import { InvisiboxCreatorPage } from '../invisibox-creator/invisibox-creator'
 import { InvisiboxService } from '../../providers/invisibox-service'
 import { InvisiboxViewerPage } from '../invisibox-viewer/invisibox-viewer'
 
@@ -24,7 +24,7 @@ export class ManualBarcodeEntryPage {
           })
           .catch(response =>{
             if(response.status == 404){
-              this.navCtrl.push(GeneralInformationPage,{barcodeId:this.barcodeId});
+              this.navCtrl.push(InvisiboxCreatorPage,{barcodeId:this.barcodeId});
             }else{
                 alert("The backend service may be down.")
               }

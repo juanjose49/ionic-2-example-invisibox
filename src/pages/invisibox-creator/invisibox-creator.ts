@@ -8,11 +8,11 @@ import { Camera } from '@ionic-native/camera';
 import $ from 'jquery';
 
 @Component({
-  selector: 'page-general-information',
-  templateUrl: 'general-information.html'
+  selector: 'page-invisibox-creator',
+  templateUrl: 'invisibox-creator.html'
   
 })
-export class GeneralInformationPage {
+export class InvisiboxCreatorPage {
   public title;
   public wikipediaUrl;
   public funFacts = [];
@@ -25,7 +25,11 @@ export class GeneralInformationPage {
     public camera: Camera) {}
 
   ionViewDidLoad() {
-    this.setBarcodeId(this.navParams.data.barcodeId)
+    if(this.navParams.data.barcodeId != null){
+      this.setBarcodeId(this.navParams.data.barcodeId)
+    }else{
+      this.setBarcodeId(this.guid())
+    }
   }
 
   addFunFact(event){
