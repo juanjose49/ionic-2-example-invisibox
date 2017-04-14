@@ -14,7 +14,6 @@ export class InvisiboxManagerPage {
   public userService: UserService) {}
 
   ionViewDidLoad() {
-      $("#invisibox-bg").fadeOut(2000);
   }
 
   getNav(){

@@ -7,13 +7,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-content  id="invisibox-bg" style= "
-        background-image: url(assets/img/splash.png); 
-        background-size: cover; 
-        background-position: center;" >
-  </ion-content>
   <div id="login-prompt" *ngIf="!isLoggedIn()">
-      <h4>Please login to manage your Invisiboxes</h4>
+      <h4 class="transparent">Please login to manage your Invisiboxes</h4>
       <button (click)="login()" ion-button full color="secondary">Login with Google+</button>
   </div>
 </ion-content>
