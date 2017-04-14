@@ -8,6 +8,7 @@ import { ManualBarcodeEntryPage } from '../pages/manual-barcode-entry/manual-bar
 import { InvisiboxService } from '../providers/invisibox-service'
 import { ImageService } from '../providers/image-service'
 import { ConfigService } from '../providers/config-service'
+import { UserService } from '../providers/user-service'
 import { StatusService } from '../providers/status-service'
 import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
 import { QrViewerPage } from '../pages/qr-viewer/qr-viewer'
@@ -52,6 +53,6 @@ import { GooglePlus } from '@ionic-native/google-plus';
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
   InvisiboxService, ImageService, ConfigService, StatusService, SplashScreen,
-  StatusBar, BarcodeScanner, Camera, PhotoViewer, GooglePlus]
+  StatusBar, BarcodeScanner, Camera, PhotoViewer, GooglePlus, UserService]
 })
 export class AppModule {}

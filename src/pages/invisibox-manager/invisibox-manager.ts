@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { GooglePlus } from '@ionic-native/google-plus';
-
+import { UserService } from '../../providers/user-service';
+import { ConfigService } from '../../providers/config-service';
+import $ from 'jquery';
 
 @Component({
   selector: 'page-invisibox-manager',
@@ -9,11 +10,11 @@ import { GooglePlus } from '@ionic-native/google-plus';
 })
 export class InvisiboxManagerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-  public googlePlus: GooglePlus) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  public userService: UserService, public configService: ConfigService) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InvisiboxManagerPage');
+      $("#invisibox-bg").fadeOut(1000);
   }
 
   getNav(){
@@ -21,9 +22,15 @@ export class InvisiboxManagerPage {
   }
 
   login(){
-    this.googlePlus.login({})
-      .then(res => console.log(res))
-      .catch(err => console.error(err));;
+    this.userService.login();
+  }
+
+  isLoggedIn(){
+    return this.userService.isLoggedIn()
+  }
+
+  isInitialLoad(){
+    this.configService.isInitialLoad();
   }
 
 }
