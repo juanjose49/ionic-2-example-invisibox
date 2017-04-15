@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
-import { AddFunFactsPage } from '../add-fun-facts/add-fun-facts'
+import { SlideCreatorPage } from '../slide-creator/slide-creator'
 import { QrViewerPage } from '../qr-viewer/qr-viewer'
 import { InvisiboxService } from '../../providers/invisibox-service'
 import { ImageService } from '../../providers/image-service'
@@ -32,8 +32,8 @@ export class InvisiboxCreatorPage {
     }
   }
 
-  addFunFact(event){
-      let addModal = this.modalCtrl.create(AddFunFactsPage);
+  addSlide(event){
+      let addModal = this.modalCtrl.create(SlideCreatorPage);
       addModal.onDidDismiss((funFact) => {
         if(funFact){
           this.funFacts.push(funFact);
@@ -105,6 +105,10 @@ export class InvisiboxCreatorPage {
 
             
     });
+  }
+
+  close(){
+    this.navCtrl.pop();
   }
 
   guid() {

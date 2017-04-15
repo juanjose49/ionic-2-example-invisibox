@@ -1,39 +1,31 @@
 <ion-header>
-  <ion-navbar color="primary" style="text-align: center">
+  <ion-navbar color="primary" >
     <ion-title>Invisibox Creator</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-list-header>
-      General
-    </ion-list-header>
-    <ion-item>
-      <ion-input [(ngModel)]="title"type="text" placeholder="Title"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="wikipediaUrl" type="text" placeholder="Wikipedia URL"></ion-input>
-    </ion-item>
-
-    <ion-list-header>
-      Fun Facts
-    </ion-list-header>
-    <ion-item *ngFor="let funFact of funFacts">{{funFact | truncate: ['50']}}</ion-item>
-    <ion-item>
-        <button (click)="addFunFact()" ion-button item-right>Add Fun Fact</button>
-    </ion-item>
-    <ion-list-header>
-      Images
-    </ion-list-header>
-    <ion-item *ngFor="let img of images">
-          <ion-card>
-            <img src="{{img}}"/>
-          </ion-card>
-    </ion-item>
-    <ion-item>
-        <button (click)="captureImage()" ion-button item-right>Capture Image</button>
-    </ion-item>
-  </ion-list>
-  <button (click)="submit()" ion-button color="secondary" full>Submit</button>
+  <h4 class="input-title">Name</h4>
+  <ion-input type="text" placeholder="Enter your Invisibox's name..."></ion-input>
+  <h4 class="input-title">Slides</h4>
+  <ion-card *ngFor="let slide of slides">
+    <img src="{{slide.image}}"/>
+    <div class="card-title">{{slide.title}}</div>
+  </ion-card>
+  <div style="text-align:center;">
+    <button (click)="addSlide()" ion-button end>Add Slide</button>
+  </div>
 </ion-content>
+
+<ion-footer padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button full (click)="close()" ion-button color="secondary" round>Cancel</button>
+      </ion-col>
+      <ion-col >
+        <button full (click)="submit()" ion-button color="secondary" round>Save</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

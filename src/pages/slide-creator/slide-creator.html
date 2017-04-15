@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar style="text-align: center;" color="primary">
+    <ion-title>Slide Creator</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h4 class="input-title">Title</h4>
+  <ion-input type="text" placeholder="Enter your slide's title here..."></ion-input>
+  <h4 class="input-title">Image</h4>
+  <div style="text-align:center;">
+    <button (click)="addSlide()" ion-button end>Add Image</button>
+  </div>
+  <h4 class="input-title">Text Content</h4>
+  <ion-textarea [(ngModel)]="funFact" rows="5" placeholder="Enter your text here..."></ion-textarea>
+  <h4 class="input-title">Keywords</h4>
+  <ion-input type="text" placeholder="Enter your comma-separated keywords here..."></ion-input>
+</ion-content>
+
+<ion-footer padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+    <button full (click)="close()" ion-button color="secondary" round>Cancel</button>
+      </ion-col>
+      <ion-col >
+    <button full (click)="submit()" ion-button color="secondary" round>Save</button>
+      </ion-col>
+      <ion-col>
+    <button full (click)="submit()" ion-button color="secondary" round>Save & Add Another</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

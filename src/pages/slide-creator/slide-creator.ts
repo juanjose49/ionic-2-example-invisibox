@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-add-fun-facts',
-  templateUrl: 'add-fun-facts.html'
+  selector: 'page-slide-creator',
+  templateUrl: 'slide-creator.html'
 })
-export class AddFunFactsPage {
+export class SlideCreatorPage {
   public funFact;
 
   constructor(public navCtrl: NavController, public navParams: NavParams , public view: ViewController) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddFunFactsPage');
+    console.log('ionViewDidLoad SlideCreatorPage');
   }
 
   close(event){

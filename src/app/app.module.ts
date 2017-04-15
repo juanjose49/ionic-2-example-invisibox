@@ -1,7 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AddFunFactsPage } from '../pages/add-fun-facts/add-fun-facts'
+import { SlideCreatorPage } from '../pages/slide-creator/slide-creator'
 import { InvisiboxCreatorPage } from '../pages/invisibox-creator/invisibox-creator'
 import { TruncatePipe } from '../pipes/truncate'
 import { ManualBarcodeEntryPage } from '../pages/manual-barcode-entry/manual-barcode-entry'
@@ -26,7 +26,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 @NgModule({
   declarations: [
     MyApp,
-    AddFunFactsPage,
+    SlideCreatorPage,
     InvisiboxCreatorPage,
     TruncatePipe,
     ManualBarcodeEntryPage,
@@ -43,7 +43,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AddFunFactsPage,
+    SlideCreatorPage,
     InvisiboxCreatorPage,
     ManualBarcodeEntryPage,
     InvisiboxViewerPage,
