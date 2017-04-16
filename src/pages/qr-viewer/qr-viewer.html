@@ -1,7 +1,20 @@
 <ion-content padding>
   <div style="text-align: center">
     <img (click)="openViewer(qrCode)" [src]="qrCode"/>
+    <p id="qr-code-plaintext">{{plaintext}}</p>
+    <button (click)="copyToClipboard('qr-code-plaintext')" ion-button color="primary"> Copy to Clipboard</button>
+    
   </div>
   
-  <button (click)="finish()" ion-button color="secondary" full>Finish</button>
+  
 </ion-content>
+
+<ion-footer padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button (click)="finish()" ion-button color="secondary" full>Finish</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

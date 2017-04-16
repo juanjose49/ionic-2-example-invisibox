@@ -63,7 +63,7 @@ export class InvisiboxCreatorPage {
     }
     this.invisiboxService.saveInvisibox(invisibox)
       .then(response => {
-        this.navCtrl.push(QrViewerPage, { qrCode: response.json().qrCode });
+        this.navCtrl.push(QrViewerPage, { qrCode: response.json() });
       }).catch(response => {
         console.log(response);
         alert("An error occurred saving your Invisibox.")
