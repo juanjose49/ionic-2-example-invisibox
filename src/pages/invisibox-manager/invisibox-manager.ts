@@ -56,6 +56,6 @@ export class InvisiboxManagerPage {
   }
 
   loadInvisibox(invisibox){
-    this.navCtrl.push(InvisiboxViewerPage, {"invisibox" : invisibox})
+    this.navCtrl.push(InvisiboxViewerPage, {"invisibox" : JSON.parse(JSON.stringify(invisibox))})
   }
 }
