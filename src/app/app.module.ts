@@ -6,10 +6,11 @@ import { InvisiboxCreatorPage } from '../pages/invisibox-creator/invisibox-creat
 import { TruncatePipe } from '../pipes/truncate'
 import { ManualBarcodeEntryPage } from '../pages/manual-barcode-entry/manual-barcode-entry'
 import { InvisiboxService } from '../providers/invisibox-service'
-import { ImageService } from '../providers/image-service'
+import { SlideService } from '../providers/slide-service'
 import { ConfigService } from '../providers/config-service'
 import { UserService } from '../providers/user-service'
 import { StatusService } from '../providers/status-service'
+import { LoggerService } from '../providers/logger-service'
 import { InvisiboxViewerPage } from '../pages/invisibox-viewer/invisibox-viewer'
 import { QrViewerPage } from '../pages/qr-viewer/qr-viewer'
 import { InvisiboxManagerPage } from '../pages/invisibox-manager/invisibox-manager';
@@ -22,6 +23,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpModule } from '@angular/http'
 import { GooglePlus } from '@ionic-native/google-plus';
+import { Events } from 'ionic-angular';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
     SettingsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
-  InvisiboxService, ImageService, ConfigService, StatusService, SplashScreen,
-  StatusBar, BarcodeScanner, Camera, PhotoViewer, GooglePlus, UserService]
+  InvisiboxService, SlideService, ConfigService, StatusService, SplashScreen,
+  StatusBar, BarcodeScanner, Camera, PhotoViewer, GooglePlus, UserService,
+  LoggerService, Events]
 })
 export class AppModule {}

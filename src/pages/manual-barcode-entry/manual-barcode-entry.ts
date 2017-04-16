@@ -34,7 +34,7 @@ export class ManualBarcodeEntryPage {
     }
   }
 
-  cancel(){
+  close(){
     this.navCtrl.parent.select(0);
   }
 

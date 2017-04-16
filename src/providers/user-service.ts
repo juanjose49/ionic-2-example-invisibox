@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { ConfigService } from './config-service';
 import { GooglePlus } from '@ionic-native/google-plus';
-
+import { LoggerService } from './logger-service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -11,22 +11,30 @@ export class UserService {
   public user;
   public host;
   constructor(public http: Http, public configService: ConfigService,
-  public googlePlus: GooglePlus) {
+  public googlePlus: GooglePlus, public logger: LoggerService) {
     this.host = configService.getHost();
   }
 
   login(){
-    this.googlePlus.login({})
+    return new Promise((resolve, reject) => {
+      this.googlePlus.login({})
       .then(res => {
         this.invisiboxLogin(res);
+        resolve();
       })
       .catch(err => {
         console.error(err);
         this.user = {
           name : "Juan San Emeterio",
-          id : "abc123"
+          userId : "abc123"
         }
+        this.logger.log("Invisibox user just logged in:")
+        this.logger.log(this.user);  
+        resolve();      
       });
+      
+    });
+    
     
   }
 
@@ -36,6 +44,10 @@ export class UserService {
     // this.http.post("http://"+this.host+":7000/login/", idToken, options).toPromise()
     //   .then(response => console.log(response.json))
     this.user = user;
+    console.log(user);
+    this.logger.log("Invisibox user just logged in:")
+    this.logger.log(user);
+
       
   }
 
@@ -59,5 +71,13 @@ export class UserService {
 
   getUser(){
     return this.user;
+  }
+
+  getUserId(){
+    if(this.user){
+      return this.user.userId;
+    } else {
+      return null;
+    }
   }
 }

@@ -1,38 +1,44 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ImageService } from '../../providers/image-service';
+import { SlideService } from '../../providers/slide-service';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
-
+import { LoggerService } from '../../providers/logger-service'
 @Component({
   selector: 'page-invisibox-viewer',
   templateUrl: 'invisibox-viewer.html'
 })
 export class InvisiboxViewerPage {
   public invisibox;
-  public images = [];
+  public slides = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public imageService: ImageService, public photoViewer: PhotoViewer) {
+  public slideService: SlideService, public photoViewer: PhotoViewer,
+  public logger: LoggerService) {
+
     this.setInvisibox(this.navParams.data.invisibox)
-    this.loadNextImage()}
+    this.loadNextSlide()}
 
   setInvisibox(invisibox){
+    this.logger.log("InvisiboxViewerPage: loaded Invisibox:");
+    this.logger.log(invisibox);
+    
     this.invisibox = invisibox;
   }
 
-  loadNextImage(){
-    var imageService = this.imageService;
-    var images = this.images;
-    if(this.invisibox.imageUuids){
-      var imageUuid = this.invisibox.imageUuids[0];
-      this.invisibox.imageUuids.splice(0,1);
-        imageService.getImage(imageUuid).then(response =>{
-          // console.log(response.json())
-          images.push(response.json());
+  loadNextSlide(){
+    var slideService = this.slideService;
+    var slides = this.slides;
+    var logger = this.logger;
+    if(this.invisibox.slides.length > 0){
+      var slideUuid = this.invisibox.slides[0];
+      this.invisibox.slides.splice(0,1);
+      slideService.getSlide(slideUuid).then(response =>{
+          slides.push(response.json());
+          logger.log("InvisiboxViewerPage: loaded Slide:")
+          logger.log(response.json())
+      })
 
-        })
-
-      }
+    }
     
   }
 

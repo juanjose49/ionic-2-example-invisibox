@@ -2,17 +2,28 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../providers/user-service';
 import { ConfigService } from '../../providers/config-service';
+import { InvisiboxService } from '../../providers/invisibox-service';
+import { LoggerService } from '../../providers/logger-service';
 import $ from 'jquery';
 import { InvisiboxCreatorPage } from '../invisibox-creator/invisibox-creator'
+import { InvisiboxViewerPage } from '../invisibox-viewer/invisibox-viewer'
+import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-invisibox-manager',
   templateUrl: 'invisibox-manager.html'
 })
 export class InvisiboxManagerPage {
+  public invisiboxes = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-  public userService: UserService) {}
+  public userService: UserService, public invisiboxService: InvisiboxService,
+  public logger: LoggerService, public events: Events) {
+    this.loadInvisiboxes();
+    this.events.subscribe('invisibox:saved', (invisibox, time) => {
+      this.invisiboxes.push(invisibox);
+    });
+  }
 
   ionViewDidLoad() {
   }
@@ -22,7 +33,9 @@ export class InvisiboxManagerPage {
   }
 
   login(){
-    this.userService.login();
+    this.userService.login()
+    .then(resolved => this.loadInvisiboxes());
+    
   }
 
   isLoggedIn(){
@@ -33,5 +46,16 @@ export class InvisiboxManagerPage {
     this.navCtrl.push(InvisiboxCreatorPage)
   }
 
+  loadInvisiboxes(){
+    this.logger.log("InvisiboxManagerPage: Attempting to load Invisiboxes");
+    if(this.userService.getUserId()){
+       this.invisiboxService.getInvisiboxes(this.userService.getUserId())
+          .then(response => this.invisiboxes =response.json())
+          .catch(response => console.log(response));
+    }
+  }
 
+  loadInvisibox(invisibox){
+    this.navCtrl.push(InvisiboxViewerPage, {"invisibox" : invisibox})
+  }
 }

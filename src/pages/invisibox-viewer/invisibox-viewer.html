@@ -12,12 +12,12 @@
 
 <ion-content>
   <ion-slides pager>
-    <ion-slide *ngFor="let image of images">
-      <img (click)="openViewer(image.base64Img)" src="{{image.base64Img}}" (load)="loadNextImage()"/>
-    </ion-slide>
-
-    <ion-slide *ngFor="let funFact of invisibox.funFacts">
-      <h2>{{funFact}}</h2>
+    <ion-slide class="full-page-slide" *ngFor="let slide of slides">
+      <div style="text-align: left;">
+      <h1 class="input-title" >{{slide.title}}</h1>
+      </div>
+      <img (click)="openViewer(slide.base64Img)" src="{{slide.base64Img}}" (load)="loadNextSlide()"/>
+      <p>{{slide.textContent}}</p>
     </ion-slide>
 
     <ion-slide >

@@ -5,7 +5,19 @@
 </ion-header>
 
 <ion-content padding>
-      <ion-input [(ngModel)]="barcodeId" type="text" placeholder="Enter your Barcode..."></ion-input>
-      <button (click)="submit()" ion-button color="secondary" full>Submit</button>
-      <button (click)="cancel()" ion-button color="primary" full>Cancel</button>
+      <h4 class="input-title">Barcode Text</h4>
+      <ion-input [(ngModel)]="barcodeId" type="text" placeholder="Enter the barcode text here..."></ion-input>
 </ion-content>
+
+<ion-footer padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button full (click)="close()" ion-button color="light" round>Cancel</button>
+      </ion-col>
+      <ion-col >
+        <button full (click)="submit()" ion-button color="secondary" round>Save</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

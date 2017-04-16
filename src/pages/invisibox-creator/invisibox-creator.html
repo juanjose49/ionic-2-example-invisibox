@@ -4,13 +4,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="card-background-page">
   <h4 class="input-title">Name</h4>
-  <ion-input type="text" placeholder="Enter your Invisibox's name..."></ion-input>
+  <ion-input  [(ngModel)]="title" type="text" placeholder="Enter your Invisibox's name..."></ion-input>
   <h4 class="input-title">Slides</h4>
   <ion-card *ngFor="let slide of slides">
-    <img src="{{slide.image}}"/>
-    <div class="card-title">{{slide.title}}</div>
+    <img src="{{slide.base64Img}}"/>
+    <div *ngIf="slide" class="card-title">{{slide.title}}</div>
   </ion-card>
   <div style="text-align:center;">
     <button (click)="addSlide()" ion-button end>Add Slide</button>
@@ -21,7 +21,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <button full (click)="close()" ion-button color="secondary" round>Cancel</button>
+        <button full (click)="close()" ion-button color="light" round>Cancel</button>
       </ion-col>
       <ion-col >
         <button full (click)="submit()" ion-button color="secondary" round>Save</button>
