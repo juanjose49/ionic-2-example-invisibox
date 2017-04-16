@@ -9,7 +9,7 @@
   <ion-input  [(ngModel)]="title" type="text" placeholder="Enter your Invisibox's name..."></ion-input>
   <h4 class="input-title">Slides</h4>
   <ion-card *ngFor="let slide of slides">
-    <img src="{{slide.base64Img}}"/>
+    <img class="rounded"src="{{slide.base64Img}}"/>
     <div *ngIf="slide" class="card-title">{{slide.title}}</div>
   </ion-card>
   <div style="text-align:center;">
