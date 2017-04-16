@@ -58,4 +58,17 @@ export class InvisiboxManagerPage {
   loadInvisibox(invisibox){
     this.navCtrl.push(InvisiboxViewerPage, {"invisibox" : JSON.parse(JSON.stringify(invisibox))})
   }
+
+  delete(invisibox){
+    //TODO: Delete the associated slides.
+    this.logger.log("InvisiboxManagerPage: Deleting Invisibox:");
+    this.logger.log(invisibox);
+    this.invisiboxService.deleteInvisibox(invisibox.barcodeId)
+      .then(response => {
+        var index = this.invisiboxes.indexOf(invisibox, 0);
+        if (index > -1) {
+          this.invisiboxes.splice(index, 1);
+        }
+      }).catch(response => console.log(response));
+  }
 }

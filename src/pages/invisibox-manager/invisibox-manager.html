@@ -19,11 +19,16 @@
       </h4>
   </div>
 
-  <div  *ngIf="isLoggedIn() && invisiboxes">
-    <ion-list inset>
-      <button ion-item *ngFor="let invisibox of invisiboxes" (click)="loadInvisibox(invisibox)">
-        {{ invisibox.title }}
-      </button> 
+  <div  *ngIf="isLoggedIn() && invisiboxes.length>0">
+    <ion-list>
+      <ion-item-sliding *ngFor="let invisibox of invisiboxes" >
+        <ion-item (click)="loadInvisibox(invisibox)">
+          <h2>{{ invisibox.title }}</h2>
+        </ion-item>
+        <ion-item-options side="right">
+          <button (click)="delete(invisibox)" ion-button color="danger">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
     </ion-list>
   </div>
   <div *ngIf="isLoggedIn()">

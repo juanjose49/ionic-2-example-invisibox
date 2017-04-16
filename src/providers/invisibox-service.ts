@@ -26,6 +26,12 @@ export class InvisiboxService {
     return this.http.get("http://"+this.host+":7000/invisibox/"+barcodeId, options).toPromise()
   }
 
+  deleteInvisibox(barcodeId){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.delete("http://"+this.host+":7000/invisibox/"+barcodeId, options).toPromise()
+  }
+
   getInvisiboxes(userId){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
