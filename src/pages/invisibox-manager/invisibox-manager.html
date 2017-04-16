@@ -11,7 +11,7 @@
       <h4 class="transparent">Please login to manage your Invisiboxes</h4>
       <button round (click)="login()" ion-button full color="secondary">Login with Google+</button>
   </div>
-  <div class="centered-dialog" *ngIf="isLoggedIn() && invisiboxes == null">
+  <div class="centered-dialog" *ngIf="isLoggedIn() && invisiboxes.length==0">
       <h4 class="transparent">
         Seems like you don't have any Invisiboxes... 
         Create one now by clicking on the plus button at the

@@ -25,8 +25,8 @@ export class UserService {
       .catch(err => {
         console.error(err);
         this.user = {
-          name : "Juan San Emeterio",
-          userId : "abc123"
+          name : "Mock User",
+          userId : this.guid()
         }
         this.logger.log("Invisibox user just logged in:")
         this.logger.log(this.user);  
@@ -80,4 +80,15 @@ export class UserService {
       return null;
     }
   }
+
+  guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+      s4() + '-' + s4() + s4() + s4();
+  }
+
 }

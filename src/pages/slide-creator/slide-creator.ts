@@ -11,27 +11,27 @@ import { LoggerService } from '../../providers/logger-service'
 export class SlideCreatorPage {
   public title = "";
   public textContent = "";
-  public base64Img = {"img" : ""};
+  public base64Img = { "img": "" };
   public keywords = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams , 
-  public view: ViewController, public camera: Camera, public logger: LoggerService) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public view: ViewController, public camera: Camera, public logger: LoggerService) { }
 
   ionViewDidLoad() {
   }
 
-  close(event){
+  close(event) {
     this.view.dismiss();
   }
 
-  save(event){
+  save(event) {
     this.view.dismiss(
       {
-        "title" : this.title,
-        "textContent" : this.textContent,
-        "base64Img" : this.base64Img.img,
-        "keywords" : this.keywords,
-        "uuid" : this.guid()
+        "title": this.title,
+        "textContent": this.textContent,
+        "base64Img": this.base64Img.img,
+        "keywords": this.keywords,
+        "uuid": this.guid()
       }
     );
   }
@@ -64,7 +64,7 @@ export class SlideCreatorPage {
     });
   }
 
-    guid() {
+  guid() {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
