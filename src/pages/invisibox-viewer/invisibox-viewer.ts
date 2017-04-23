@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { SlideService } from '../../providers/slide-service';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { LoggerService } from '../../providers/logger-service'
+import { InvisiboxService } from '../../providers/invisibox-service'
 @Component({
   selector: 'page-invisibox-viewer',
   templateUrl: 'invisibox-viewer.html'
@@ -13,10 +14,18 @@ export class InvisiboxViewerPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public slideService: SlideService, public photoViewer: PhotoViewer,
-  public logger: LoggerService) {
-
-    this.setInvisibox(this.navParams.data.invisibox)
-    this.loadNextSlide()}
+  public logger: LoggerService, public invisiboxService: InvisiboxService) {
+    if(this.navParams.data.invisibox){
+      this.setInvisibox(this.navParams.data.invisibox)
+      this.loadNextSlide()
+    } else {
+      this.invisiboxService.getInvisibox(this.navParams.data.invisiboxId)
+        .then(response => {
+          this.setInvisibox(response.json())
+          this.loadNextSlide()
+        })
+    }
+  }
 
   setInvisibox(invisibox){
     this.logger.log("InvisiboxViewerPage: loaded Invisibox:");

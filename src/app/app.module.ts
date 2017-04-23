@@ -23,6 +23,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpModule } from '@angular/http'
 import { GooglePlus } from '@ionic-native/google-plus';
+import { Deeplinks } from '@ionic-native/deeplinks';
 import { Events } from 'ionic-angular';
 
 @NgModule({
@@ -56,6 +57,6 @@ import { Events } from 'ionic-angular';
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
   InvisiboxService, SlideService, ConfigService, StatusService, SplashScreen,
   StatusBar, BarcodeScanner, Camera, PhotoViewer, GooglePlus, UserService,
-  LoggerService, Events]
+  LoggerService, Events, Deeplinks]
 })
 export class AppModule {}
