@@ -11,7 +11,7 @@
         <h1 style="font-size: 24pt;">{{slide.title}}</h1>
       </div>
       <div class="image-wrapper">
-        <img class="rounded" (click)="openViewer(slide.base64Img)" src="{{slide.base64Img}}" (load)="loadNextSlide()"/>
+        <img (click)="openViewer(slide.base64Img)" src="{{slide.base64Img}}" (load)="loadNextSlide()"/>
       </div>
       <p>{{slide.textContent}}</p>
     </ion-slide>
