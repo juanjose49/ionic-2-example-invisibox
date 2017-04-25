@@ -67,7 +67,7 @@
     <icon src="resources/ios/icon/icon-small@3x.png" />
     <plugin name="ionic-plugin-deeplinks" spec="~1.0.14">
         <variable name="URL_SCHEME" value="invisibox" />
-        <variable name="DEEPLINK_HOST" value="localhost" />
+        <variable name="DEEPLINK_HOST" value="myinvisibox.com" />
         <variable name="DEEPLINK_SCHEME" value="http" />
     </plugin>
     <plugin name="cordova-plugin-googleplus" spec="~5.1.1">
