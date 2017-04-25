@@ -4,6 +4,8 @@ import { SlideService } from '../../providers/slide-service';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { LoggerService } from '../../providers/logger-service'
 import { InvisiboxService } from '../../providers/invisibox-service'
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 @Component({
   selector: 'page-invisibox-viewer',
   templateUrl: 'invisibox-viewer.html'
@@ -14,7 +16,8 @@ export class InvisiboxViewerPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public slideService: SlideService, public photoViewer: PhotoViewer,
-  public logger: LoggerService, public invisiboxService: InvisiboxService) {
+  public logger: LoggerService, public invisiboxService: InvisiboxService,
+  public socialSharing: SocialSharing) {
     if(this.navParams.data.invisibox){
       this.setInvisibox(this.navParams.data.invisibox)
       this.loadNextSlide()
@@ -57,6 +60,14 @@ export class InvisiboxViewerPage {
 
   openViewer(base64Img){
     this.photoViewer.show(base64Img);
+  }
+
+  share(){
+    this.socialSharing.share(
+      this.slides[0].textContent, 
+      this.invisibox.title, 
+      this.slides[0].base64Img,
+      "http://myinvisibox.com/invisibox/"+this.invisibox.barcodeId)
   }
 
 }

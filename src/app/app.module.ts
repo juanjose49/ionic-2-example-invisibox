@@ -25,6 +25,7 @@ import { HttpModule } from '@angular/http'
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { Events } from 'ionic-angular';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,6 @@ import { Events } from 'ionic-angular';
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
   InvisiboxService, SlideService, ConfigService, StatusService, SplashScreen,
   StatusBar, BarcodeScanner, Camera, PhotoViewer, GooglePlus, UserService,
-  LoggerService, Events, Deeplinks]
+  LoggerService, Events, Deeplinks, SocialSharing]
 })
 export class AppModule {}
