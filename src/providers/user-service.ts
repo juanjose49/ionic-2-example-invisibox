@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import { ConfigService } from './config-service';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { LoggerService } from './logger-service';

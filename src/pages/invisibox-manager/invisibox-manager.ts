@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../providers/user-service';
-import { ConfigService } from '../../providers/config-service';
 import { InvisiboxService } from '../../providers/invisibox-service';
 import { LoggerService } from '../../providers/logger-service';
-import $ from 'jquery';
 import { InvisiboxCreatorPage } from '../invisibox-creator/invisibox-creator'
 import { InvisiboxViewerPage } from '../invisibox-viewer/invisibox-viewer'
 import { Events } from 'ionic-angular';
